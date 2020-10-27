@@ -9,8 +9,9 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :friendships 
+  has_many :friendships
   has_many :inverse_friendships, class_name: :Friendship, foreign_key: :friend_id
+  has_many :friends, through: :friendships
 
   def friends
     friends_array = friendships.map{|friendship| friendship.friend if friendship.confirmed}

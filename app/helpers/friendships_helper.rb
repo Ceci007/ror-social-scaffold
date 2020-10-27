@@ -10,11 +10,11 @@ module FriendshipsHelper
 
   # Users who have requested to be friends
   def friend_requests
-    inverse_friendships.map{|friendship| friendship.sender if !friendship.confirmed}.compact 
+    inverse_friendships.map{|friendship| friendship.user if !friendship.confirmed}.compact 
   end
 
   def confirm_friend(user)
-    friendship = inverse_friendships.find{|friendship| friendship.sender == user}
+    friendship = inverse_friendships.find{|friendship| friendship.user == user}
     friendship.confirmed = true
     friendship.save
   end
