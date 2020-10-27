@@ -13,6 +13,10 @@ module FriendshipsHelper
     inverse_friendships.map{|friendship| friendship.user if !friendship.confirmed}.compact 
   end
 
+  def inverse_friendships_find(user)
+    friendship = inverse_friendships.find{|friendship| friendship.user == user}
+  end
+
   def confirm_friend(user)
     friendship = inverse_friendships.find{|friendship| friendship.user == user}
     friendship.confirmed = true
