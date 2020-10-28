@@ -23,7 +23,4 @@ module FriendshipsHelper
     friends.include?(user)
   end
 
-  def confirm_decline(request)
-    render partial: 'confirm_decline', locals: { request: request } if request.user.confirm_inverse?(current_user)
-  end
 end

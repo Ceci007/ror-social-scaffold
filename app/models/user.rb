@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :friendships
-  has_many :inverse_friendships, class_name: :Friendship, foreign_key: :friend_id
+  has_many :inverse_friendships, class_name: 'Friendship', foreign_key: :friend_id
   has_many :friends, through: :friendships
 
   def friendship_created?(friend)
@@ -20,6 +20,12 @@ class User < ApplicationRecord
   def created_inverse?(friend)
     friend.friendships.find_by(friend_id: id).nil?
   end
+
+  def friendship_invited?(user)
+    result = !friendships.find_by(user_id: user.id, confirmed: false).nil?
+    result
+  end
+
 
   def confirm_inverse?(friend)
     !friendships.find_by(friend_id: friend.id, confirmed: false).nil?

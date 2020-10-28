@@ -15,4 +15,8 @@ module ApplicationHelper
       link_to('Like!', post_likes_path(post_id: post.id), method: :post)
     end
   end
+
+  def confirm_decline(request)
+    render partial: 'friendships/confirm_decline', locals: { request: request } if request.user.confirm_inverse?(current_user)
+  end
 end
