@@ -49,9 +49,9 @@ Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 Lint/RaiseException:
   Enabled: false
-Lint/StructNewOverride:  
+Lint/StructNewOverride:
   Enabled: false
-Style/HashEachMethods:  
+Style/HashEachMethods:
   Enabled: false
 Style/HashTransformKeys:
   Enabled: false
