@@ -1,7 +1,8 @@
 require 'rails_helper'
+
 RSpec.describe 'Friendship management', type: :feature do
   let(:user) { User.create(name: 'Youcef', email: 'youcefabdellani@gmail.com', password: 'password123') }
-  let(:friend) {User.create(name: 'Cecilia', email: 'cecibenitezca@gmail.com', password: 'password123')}
+  let(:friend) { User.create(name: 'Cecilia', email: 'cecibenitezca@gmail.com', password: 'password123') }
   
   scenario 'Send friend request from Users index page' do
     friend = User.create(name: 'Cecilia', email: 'cecibenitezca@gmail.com', password: 'password123')
@@ -57,7 +58,7 @@ RSpec.describe 'Friendship management', type: :feature do
     expect(page).to have_content("Name: #{friend.name}")
   end
   scenario 'Decline friendship' do
-    user.friendships.build(friend_id: friend.id, status: false).save
+    user.friendships.build(friend_id: friend.id, confirmed: false).save
     visit root_path
     fill_in 'user_email', with: friend.email
     fill_in 'user_password', with: friend.password
@@ -77,7 +78,7 @@ RSpec.describe 'Friendship management', type: :feature do
   scenario 'See posts from the user and his or her friends in the Timeline' do
     friend.posts.build(content: "Hello Eugenia").save
     user.posts.build(content: "Hello Anita").save
-    user.friendships.build(friend_id: friend.id, status: true).save
+    user.friendships.build(friend_id: friend.id, confirmed: true).save
     visit root_path
     fill_in 'user_email', with: friend.email
     fill_in 'user_password', with: friend.password

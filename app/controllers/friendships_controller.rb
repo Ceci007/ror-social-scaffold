@@ -7,8 +7,7 @@ class FriendshipsController < ApplicationController
       flash[:notice] = "Friend request was successfully sent."
       redirect_to root_url
     else
-      flash[:error] = "Unable to add friend."
-      redirect_to root_url
+      redirect_to root_url, alert: @friendship.errors.full_messages.join('. ').to_s
     end
   end
   
@@ -34,7 +33,7 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.find_by(friend_id: current_user.id, user_id: params[:user_id])
 
     if @friendship.destroy
-      redirect_to user_path(current_user.id), notice: 'Friend request declined, we won\'t inform the sender'
+      redirect_to user_path(current_user.id), notice: 'Friend request declined, we won\'t inform the user'
     else
       redirect_to user_path(current_user.id), alert: @friendship.errors.full_messages.join('. ').to_s
     end
