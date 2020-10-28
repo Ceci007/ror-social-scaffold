@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Friendship management', type: :feature do
   let(:user) { User.create(name: 'Youcef', email: 'youcefabdellani@gmail.com', password: 'password123') }
   let(:friend) { User.create(name: 'Cecilia', email: 'cecibenitezca@gmail.com', password: 'password123') }
-  
+
   scenario 'Send friend request from Users index page' do
     friend = User.create(name: 'Cecilia', email: 'cecibenitezca@gmail.com', password: 'password123')
     visit root_path
@@ -16,7 +16,7 @@ RSpec.describe 'Friendship management', type: :feature do
     sleep(3)
     expect(page).to have_content("Name: #{friend.name}")
     expect(page).to have_button('Add friend')
-    first(".btn-secondary").click #Click on the first 'Add friend' button
+    first('.btn-secondary').click # Click on the first 'Add friend' button
     sleep(3)
     expect(page).to have_content('Friend request was successfully sent.')
   end
@@ -31,7 +31,7 @@ RSpec.describe 'Friendship management', type: :feature do
     click_on 'All users'
     sleep(3)
     expect(page).to have_content("Name: #{friend.name}")
-    first(".profile-link").click #Click on the first 'See Profile' link
+    first('.profile-link').click # Click on the first 'See Profile' link
     sleep(3)
     expect(page).to have_content("Name: #{friend.name}")
     expect(page).to have_button('Add friend')
@@ -76,8 +76,8 @@ RSpec.describe 'Friendship management', type: :feature do
     expect(page).to have_content("Name: #{friend.name}")
   end
   scenario 'See posts from the user and his or her friends in the Timeline' do
-    friend.posts.build(content: "Hello Eugenia").save
-    user.posts.build(content: "Hello Anita").save
+    friend.posts.build(content: 'Hello Eugenia').save
+    user.posts.build(content: 'Hello Anita').save
     user.friendships.build(friend_id: friend.id, confirmed: true).save
     visit root_path
     fill_in 'user_email', with: friend.email
