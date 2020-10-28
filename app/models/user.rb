@@ -26,7 +26,6 @@ class User < ApplicationRecord
     result
   end
 
-
   def confirm_inverse?(friend)
     !friendships.find_by(friend_id: friend.id, confirmed: false).nil?
   end
