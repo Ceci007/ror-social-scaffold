@@ -13,6 +13,18 @@ class User < ApplicationRecord
   has_many :inverse_friendships, class_name: :Friendship, foreign_key: :friend_id
   has_many :friends, through: :friendships
 
+  def friendship_created?(friend)
+    friendships.find_by(friend_id: friend.id).nil? && created_inverse?(friend)
+  end
+
+  def created_inverse?(friend)
+    friend.friendships.find_by(friend_id: id).nil?
+  end
+
+  def confirm_inverse?(friend)
+    !friendships.find_by(friend_id: friend.id, confirmed: false).nil?
+  end
+
   def friends
     friends_array = friendships.map{|friendship| friendship.friend if friendship.confirmed}
     friends_array + inverse_friendships.map{|friendship| friendship.user if friendship.confirmed}

@@ -1,6 +1,4 @@
 class FriendshipsController < ApplicationController
-  def index
-  end
 
   def create
     @friendship = current_user.friendships.build(:friend_id => params[:user_id])
@@ -31,7 +29,15 @@ class FriendshipsController < ApplicationController
     @inverse_friendships = current_user.inverse_friendships  
   end
   
+  
   def destroy
+    @friendship = Friendship.find_by(friend_id: current_user.id, user_id: params[:user_id])
+
+    if @friendship.destroy
+      redirect_to user_path(current_user.id), notice: 'Friend request declined, we won\'t inform the sender'
+    else
+      redirect_to user_path(current_user.id), alert: @friendship.errors.full_messages.join('. ').to_s
+    end
   end
 
 end

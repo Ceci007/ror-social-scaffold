@@ -1,18 +1,7 @@
-
- <li>
+<li>
   Name: <%= user.name %>
-  <span class="profile-link">
+  <span>
     <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
   </span>
-  <% unless current_user?(user) %>
-    <% if friend_request?(user) %> 
-      <span> 
-        <%= form_for(current_user.friendships.new, url: user_friendships_path(user)) do |form| %>
-          <%= form.submit 'Add friend', class: 'btn btn-secondary' %>
-        <% end %>
-      </span> 
-    <% else %> 
-      
-    <% end %>
-  <% end %>
+  <%= friend_request(user) %>
 </li> 

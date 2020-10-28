@@ -13,10 +13,6 @@ module FriendshipsHelper
     inverse_friendships.map{|friendship| friendship.user if !friendship.confirmed}.compact 
   end
 
-  def inverse_friendships_find(user)
-    friendship = inverse_friendships.find{|friendship| friendship.user == user}
-  end
-
   def confirm_friend(user)
     friendship = inverse_friendships.find{|friendship| friendship.user == user}
     friendship.confirmed = true
@@ -25,5 +21,9 @@ module FriendshipsHelper
 
   def friend?(user)
     friends.include?(user)
+  end
+
+  def confirm_decline(request)
+    render partial: 'confirm_decline', locals: { request: request } if request.user.confirm_inverse?(current_user)
   end
 end
