@@ -34,13 +34,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:content)
   end
-
-  # def accessible_posts
-  #   result = current_user.posts
-  #   inverse_friendships_posts = User.find_by(current_user.inverse_friendships.user_id).posts
-  #   friends_posts = current_user.friends.posts
-  #   result.concat(friends_posts)
-  #   result.concat(inverse_friendships_posts)
-  #   result
-  # end
 end
