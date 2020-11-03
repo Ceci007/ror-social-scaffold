@@ -88,27 +88,5 @@ RSpec.describe 'Friendship management', type: :feature do
     expect(page).to have_content("Name: #{friend.name}")
   end
 
-  scenario 'See posts from the user and his or her friends in the Timeline' do
-    friend.posts.build(content: 'Hello Cecilia').save
-    user.posts.build(content: 'Hello Youcef').save
-    user.friendships.build(friend_id: friend.id, confirmed: true).save
-
-    visit root_path
-    fill_in 'user_email', with: friend.email
-    fill_in 'user_password', with: friend.password
-    click_on 'Log in'
-    sleep(3)
-    expect(page).to have_content('Signed in successfully.')
-    expect(page).to have_content(user.name)
-    expect(page).to have_content('Hello Youcef')
-    expect(page).to have_content(friend.name)
-    expect(page).to have_content('Hello Cecilia')
-
-    click_on 'Timeline'
-    sleep(3)
-    expect(page).to have_content(user.name)
-    expect(page).to have_content('Hello Cecilia')
-    expect(page).to have_content(friend.name)
-    expect(page).to have_content('Hello Youcef')
-  end
+  
 end
