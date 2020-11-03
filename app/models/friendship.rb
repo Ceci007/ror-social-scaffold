@@ -14,7 +14,7 @@ end
 
 class Friendship < ApplicationRecord
   include ActiveModel::Validations
-  validates_with DupplicateValidator, on: :create
+  # validates_with DupplicateValidator, on: :create
   validates_with SelfFriendshipValidator
 
   belongs_to :user
@@ -22,4 +22,12 @@ class Friendship < ApplicationRecord
 
   validates :user, presence: true
   validates :friend, presence: true
+      
+  def confirm_friend
+    # self.update_attributes(confirmed: true)
+    Friendship.create!(friend_id: self.user_id,
+                    user_id: self.friend_id,
+                    confirmed: true)
+  end
+
 end

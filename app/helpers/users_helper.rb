@@ -1,7 +1,7 @@
 module UsersHelper
   def user_info(user)
     return if current_user?(user)
-
+    
     request = Friendship.find_by(user_id: user.id, friend_id: current_user.id, confirmed: false)
     if request.nil?
       render partial: 'user', locals: { user: user }
