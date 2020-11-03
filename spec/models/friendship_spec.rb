@@ -16,7 +16,7 @@ RSpec.describe 'Friendship management', type: :feature do
     sleep(3)
     expect(page).to have_content("Name: #{friend.name}")
     expect(page).to have_button('Add friend')
-    first('.btn-secondary').click # Click on the first 'Add friend' button
+    first('.btn-secondary').click # Click on the first 'Add friend' buttons
     sleep(3)
     expect(page).to have_content('Friend request was successfully sent.')
   end
@@ -74,26 +74,5 @@ RSpec.describe 'Friendship management', type: :feature do
     sleep(3)
     expect(page).to have_content('Friend request declined, we won\'t inform the user')
     expect(page).to have_content("Name: #{friend.name}")
-  end
-  scenario 'See posts from the user and his or her friends in the Timeline' do
-    friend.posts.build(content: 'Hello Eugenia').save
-    user.posts.build(content: 'Hello Anita').save
-    user.friendships.build(friend_id: friend.id, confirmed: true).save
-    visit root_path
-    fill_in 'user_email', with: friend.email
-    fill_in 'user_password', with: friend.password
-    click_on 'Log in'
-    sleep(3)
-    expect(page).to have_content('Signed in successfully.')
-    expect(page).to have_content(user.name)
-    expect(page).to have_content('Hello Anita')
-    expect(page).to have_content(friend.name)
-    expect(page).to have_content('Hello Eugenia')
-    click_on 'Timeline'
-    sleep(3)
-    expect(page).to have_content(user.name)
-    expect(page).to have_content('Hello Anita')
-    expect(page).to have_content(friend.name)
-    expect(page).to have_content('Hello Eugenia')
   end
 end

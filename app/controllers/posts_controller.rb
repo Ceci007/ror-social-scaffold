@@ -20,27 +20,10 @@ class PostsController < ApplicationController
   private
 
   def timeline_posts
-    users = [current_user.id]
-    unless Friendship.find_by(user_id: current_user.id, confirmed: true).nil?
-      users.push(Friendship.find_by(user_id: current_user.id, confirmed: true).friend_id)
-    end
-    unless Friendship.find_by(friend_id: current_user.id, confirmed: true).nil?
-      users.push(Friendship.find_by(friend_id: current_user.id, confirmed: true).user_id)
-    end
-
-    @timeline_posts ||= Post.all.ordered_by_most_recent.where('user_id IN (?)', users)
+    @timeline_posts ||= current_user.friends_and_own_posts
   end
 
   def post_params
     params.require(:post).permit(:content)
   end
-
-  # def accessible_posts
-  #   result = current_user.posts
-  #   inverse_friendships_posts = User.find_by(current_user.inverse_friendships.user_id).posts
-  #   friends_posts = current_user.friends.posts
-  #   result.concat(friends_posts)
-  #   result.concat(inverse_friendships_posts)
-  #   result
-  # end
 end
