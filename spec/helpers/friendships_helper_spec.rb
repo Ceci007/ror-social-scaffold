@@ -87,6 +87,4 @@ RSpec.describe 'Friendship management', type: :feature do
     expect(page).to have_content('Friend request declined, we won\'t inform the user')
     expect(page).to have_content("Name: #{friend.name}")
   end
-
-  
 end

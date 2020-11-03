@@ -22,7 +22,6 @@ class FriendshipsController < ApplicationController
     end
   end
 
-
   def index
     @friendships = current_user.friendships
     @inverse_friendships = current_user.inverse_friendships

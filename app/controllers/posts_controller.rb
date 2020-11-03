@@ -20,15 +20,7 @@ class PostsController < ApplicationController
   private
 
   def timeline_posts
-    users = [current_user.id]
-    unless Friendship.find_by(user_id: current_user.id, confirmed: true).nil?
-       users.push(Friendship.find_by(user_id: current_user.id, confirmed: true).friend_id)
-    end
-    # unless Friendship.find_by(friend_id: current_user.id, confirmed: true).nil?
-       # users.push(Friendship.find_by(friend_id: current_user.id, confirmed: true).user_id)
-    # end
-
-    @timeline_posts ||= current_user.friends_and_own_posts # Post.all.ordered_by_most_recent.where('user_id IN (?)', users)
+    @timeline_posts ||= current_user.friends_and_own_posts
   end
 
   def post_params

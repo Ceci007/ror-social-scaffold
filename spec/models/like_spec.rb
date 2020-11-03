@@ -1,9 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe 'Likes/Dislikes management', type: :feature do  
+RSpec.describe 'Likes/Dislikes management', type: :feature do
   let(:user) { User.create(name: 'Youcef', email: 'youcefabdellani@gmail.com', password: 'password123') }
   let(:friend) { User.create(name: 'Cecilia', email: 'cecibenitezca@gmail.com', password: 'password123') }
-
 
   scenario 'Make a like on a post' do
     user.posts.build(content: 'maradona was a good player').save
