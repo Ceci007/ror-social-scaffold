@@ -26,10 +26,10 @@ class User < ApplicationRecord
   # Users who requested to be friends (needed for notifications)
   # traited
   # has_many :inverted_friendships, -> { where confirmed: false }, class_name: "Friendship", foreign_key: "friend_id"
-  has_many :friend_requests, through: :inverse_friendships, source: :friend
+  has_many :friend_requests, through: :inverse_friendships, source: :user
 
   def friends_and_own_posts
-    Post.where(user: (self.friends + self))
+    Post.ordered_by_most_recent.where(user: (self.friends).push(self))
     # This will produce SQL query with IN. Something like: select * from posts where user_id IN (1,45,874,43);
   end
 
