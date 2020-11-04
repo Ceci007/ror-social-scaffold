@@ -1,93 +1,54 @@
-# Scaffold for social media app with Ruby on Rails
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+#  🧐 social media app
 
-## Built With
-
-- Ruby v2.7.0
-- Ruby on Rails v5.2.4
-
-## Live Demo
-
-TBA
+This is this final collaborative project from the Ruby on Rails module from the Microverse program. It consists of making a social media where you can authenticate, post, comment, like a post and dislike it, also you can send an invitation to friends and the user can accept or decline invitations.
+![app screenshot 1](./screenshot.png)
 
 
-## Getting Started
+## 🔧 Built With these features
+- Ruby. v2.6.6
+- Ruby on Rails. v5.2.4
+- Using Rubocop Linters.
+- Bootstrap
 
+## 🛠 Getting Started
+## Install 
+ In order to run locally, you need to install Ruby on your computer. For windows, you can go to [Ruby installer](https://rubyinstaller.org/) and for MAC and LINUX you can go to [Ruby official site](https://www.ruby-lang.org/en/downloads/) for instructions on how to install it. Then you can clone the project by typing ```git clone https://github.com/Ceci007/ror-social-scaffold``` on your terminal.
+
+## Run the application
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+- Open a terminal
+- Copy this code : ```git clone "put the link from github repo"```
+- Run the program with this code : ```bundle install```
+- before running ```rails server``` you must run a few more commands: first run ```yarn install --check-files```
+- Then run ```rails db:create```, ```rails db:migrate```
+- now you can run ```rails server```
+- Stop the program with: "Ctrl + C" (Windows or Linux) or "Command + C"(Apple)
 
-Ruby: 2.6.3
-Rails: 5.2.3
-Postgres: >=9.5
+## Open app in browser
 
-### Setup
+- When the program is running go to your browser
+- put: localhost:3000/
+- Click on login, register and create a new Event
+- Enjoy the app.
 
-Instal gems with:
+## ✒️ Authors
+👤 **Cecilia Benitez Casaccia**
 
-```
-bundle install
-```
+- Github: [@Ceci007](https://github.com/Ceci007)
+- LinkedIn:[LinkedIn](www.linkedin.com/in/cecilia-benítez)
 
-Setup database with:
+👤 **Youcef Abdellani**
 
-```
-   rails db:create
-   rails db:migrate
-```
-
-### Github Actions
-
-To make sure the linters' checks using Github Actions work properly, you should follow the next steps:
-
-1. On your recently forked repo, enable the GitHub Actions in the Actions tab.
-2. Create the `feature/branch` and push.
-3. Start working on your milestone as usual.
-4. Open a PR from the `feature/branch` when your work is done.
-
-
-### Usage
-
-Start server with:
-
-```
-    rails server
-```
-
-Open `http://localhost:3000/` in your browser.
-
-### Run tests
-
-```
-    rpsec --format documentation
-```
-
-> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
-
-### Deployment
-
-TBA
-
-## Authors
-
-TBA
+- Github: [@ABDELLANI-Youcef](https://github.com/ABDELLANI-Youcef)
+- LinkedIn:[LinkedIn](linkedin.com/in/youcef-abdellani)
 
 ## 🤝 Contributing
-
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
-
-## Show your support
-
-Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-TBA
+Feel free to check the [issues page](https://github.com/Ceci007/ror-social-scaffold/issues).
 
 ## 📝 License
-
-TBA
-
+This project is [MIT](lic.url) licensed.
