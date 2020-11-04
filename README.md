@@ -2,7 +2,7 @@
 
 #  🧐 social media app
 
-This is this final collaborative project from the Ruby on Rails module from the Microverse program. It consists of making a social media where you can authenticate, post, comment, like a post and dislike it, also you can send an invitation to friends and the user can accept or decline invitations.
+This is this final collaborative project on the Ruby on Rails module from the Microverse program. It consists of making a social media where you can authenticate, post, comment, like a post and dislike it, also you can send an invitation to friends and the user can accept or decline invitations.
 ![app screenshot 1](./screenshot.png)
 
 
