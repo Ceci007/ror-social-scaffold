@@ -5,7 +5,7 @@
 This is this final collaborative project on the Ruby on Rails module from the Microverse program. It consists of making a social media where you can authenticate, post, comment, like a post and dislike it, also you can send an invitation to friends and the user can accept or decline invitations.
 ![app screenshot 1](./screenshot.png)
 
-## Live Demo
+## 🔴 Live Demo
 
 [Live Demo](https://ror-social-media.herokuapp.com/)
 
@@ -56,6 +56,4 @@ Feel free to check the [issues page](https://github.com/Ceci007/ror-social-scaff
 
 ## 📝 License
 This project is [MIT](lic.url) licensed.
-
-
 
