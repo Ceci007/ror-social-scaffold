@@ -2,10 +2,10 @@
 
 #  🧐 social media app
 
-This is this final collaborative project from the Ruby on Rails module from the Microverse program. It consists of making a social media where you can authenticate, post, comment, like a post and dislike it, also you can send an invitation to friends and the user can accept or decline invitations.
+This is this final collaborative project on the Ruby on Rails module from the Microverse program. It consists of making a social media where you can authenticate, post, comment, like a post and dislike it, also you can send an invitation to friends and the user can accept or decline invitations.
 ![app screenshot 1](./screenshot.png)
 
-## Live Demo
+## 🔴 Live Demo
 
 [Live Demo](https://ror-social-media.herokuapp.com/)
 
@@ -18,7 +18,7 @@ This is this final collaborative project from the Ruby on Rails module from the 
 
 ## 🛠 Getting Started
 ## Install 
- In order to run locally, you need to install Ruby on your computer. For windows, you can go to [Ruby installer](https://rubyinstaller.org/) and for MAC and LINUX you can go to [Ruby official site](https://www.ruby-lang.org/en/downloads/) for instructions on how to install it. Then you can clone the project by typing ```git clone https://github.com/Ceci007/ror-social-scaffold``` on your terminal.
+ In order to run on the local environment, you need to install Ruby on your computer. For windows, you can go to [Ruby installer](https://rubyinstaller.org/) and for MAC and LINUX you can go to [Ruby official site](https://www.ruby-lang.org/en/downloads/) for instructions on how to install it. Then you can clone the project by typing ```git clone https://github.com/Ceci007/ror-social-scaffold``` on your terminal.
 
 ## Run the application
 To get a local copy up and running follow these simple example steps.
