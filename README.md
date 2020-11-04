@@ -52,3 +52,4 @@ Feel free to check the [issues page](https://github.com/Ceci007/ror-social-scaff
 
 ## 📝 License
 This project is [MIT](lic.url) licensed.
+
